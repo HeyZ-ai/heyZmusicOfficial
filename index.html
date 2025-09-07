@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hey Z Music</title>
-<!-- Orbitron font for neon header -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -16,66 +14,24 @@
       color: white;
       text-align: center;
       min-height: 100vh;
-      padding-top: 150px; /* adjust depending on your header’s height */
     }
 
     header {
-  padding: 24px 20px 5px;
-  color: white;
-  text-align: center;
-  animation: fadeSlide 1.2s ease-out forwards;
-}
+      padding: 25px 20px 5px; /* header moved higher */
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    }
 
-/* Main glowing gradient text */
-header h1 {
-  font-size: 3.5 rem;
-  margin: 0;
-  background: linear-gradient(90deg, #ff1493, #ff69b4, #ffffff, #7d00ff);
-  background-size: 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 6s linear infinite;
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
-}
+    header h1 {
+      font-size: 3.5rem;
+      margin: 0;
+    }
 
-/* Typing subtitle */
-header h2 {
-  font-size: 1.6 rem;
-  font-weight: normal;
-  margin-top: 10px;
-  color: #fff;
-  border-right: 2px solid #ffffff;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-  animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
-}
-
-/* Keyframes */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-
-@keyframes typing {
-  from { width: 0; }
-  to { width: 22ch; } /* adjust to match text length */
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
-@keyframes fadeSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    header h2 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      margin-top: 5px;
+    }
 
     .songs {
       display: flex;
@@ -198,91 +154,14 @@ header h2 {
       background: #ff69b4;
       box-shadow: 0 0 20px #ff69b4, 0 0 35px #ff69b4;
     }
-
-/* Container */
-.electric-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  position: relative;
-}
-
-/* Title */
-.electric-title {
-  font-size: 3.5 rem;
-  color: #fff;
-  text-shadow: 0 0 10px #00eaff, 0 0 20px #ff00de, 0 0 40px #00eaff;
-  position: relative;
-  z-index: 2;
-}
-
-/* Lightning shapes */
-.lightning {
-  width: 40px;
-  height: 80px;
-  background: transparent;
-  position: relative;
-}
-
-/* Lightning bolt using ::before */
-.lightning::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) skewY(-20deg);
-  width: 6px;
-  height: 80px;
-  background: linear-gradient(to bottom, #00eaff, #ff00de, #fff);
-  clip-path: polygon(
-    50% 0%,
-    70% 30%,
-    40% 30%,
-    60% 60%,
-    30% 60%,
-    50% 100%,
-    0% 70%,
-    20% 70%,
-    0% 40%,
-    30% 40%
-  );
-  box-shadow: 0 0 10px #00eaff, 0 0 20px #ff00de, 0 0 40px #00eaff;
-  animation: flicker 0.2s infinite alternate;
-}
-
-/* Mirror right side */
-.lightning.right::before {
-  transform: translateX(-50%) skewY(20deg);
-}
-
-/* Flickering lightning effect */
-@keyframes flicker {
-  0% { opacity: 1; filter: brightness(1.5); }
-  50% { opacity: 0.6; filter: brightness(2); }
-  100% { opacity: 1; filter: brightness(1.8); }
-}
   </style>
 </head>
 <body>
 
-<header class="electric-header">
-  <!-- Left electric current -->
-  <svg class="electric-line left" viewBox="0 0 200 100" preserveAspectRatio="none">
-    <polyline points="0,50 40,40 80,60 120,30 160,50 200,40" />
-  </svg>
-
-  <!-- Title with spark in the middle -->
-  <div class="title-wrapper">
-    <h1 class="electric-title">Welcome to HeyZ Official Website</h1>
-    <div class="spark"></div>
-  </div>
-
-  <!-- Right electric current -->
-  <svg class="electric-line right" viewBox="0 0 200 100" preserveAspectRatio="none">
-    <polyline points="0,40 40,60 80,30 120,50 160,40 200,50" />
-  </svg>
-</header>
+  <header>
+    <h1></h1>
+    <h2></h2>
+  </header>
 
   <section class="songs">
     <div class="song">
@@ -429,106 +308,13 @@ header h2 {
       );
     }
 
-.electric-header {
-  position: fixed; /* freeze header */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-  padding: 20px 0;
-  backdrop-filter: blur(6px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.electric-title {
-  font-size: 3.5rem;
-  font-weight: bold;
-  color: #000; /* solid black text */
-  text-shadow: 
-    0 0 6px #ff69b4,   /* soft pink glow */
-    0 0 14px #ff1493,  /* deeper pink outer */
-    0 0 22px #ffffff,  /* white glow */
-    0 0 40px #ff69b4;  /* strong pink edge */
-  position: relative;
-  z-index: 2;
-  animation: glowPulse 2s infinite alternate;
-}
-
-/* Glow animation */
-@keyframes glowPulse {
-  from {
-    text-shadow: 
-      0 0 4px #ff69b4,
-      0 0 10px #ff1493,
-      0 0 18px #ffffff,
-      0 0 28px #ff69b4;
-  }
-  to {
-    text-shadow: 
-      0 0 10px #ffffff,
-      0 0 18px #ff69b4,
-      0 0 28px #ff1493,
-      0 0 42px #ffffff;
-  }
-}
-
-/* Lightning bolt style */
-.electric-line {
-  width: 200px;
-  height: 100px;
-  stroke: url(#electricGradient);
-  stroke-width: 2.5px;
-  fill: none;
-  filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 12px #ffffff);
-  z-index: 1;
-}
-
-/* Animate current flicker */
-.electric-line polyline {
-  stroke-dasharray: 500;
-  stroke-dashoffset: 500;
-  animation: electricFlow 1.5s linear infinite,
-             lightningFlicker 0.2s infinite alternate;
-}
-
-@keyframes electricFlow {
-  to {
-    stroke-dashoffset: -500;
-  }
-}
-
-@keyframes lightningFlicker {
-  from {
-    opacity: 1;
-    filter: drop-shadow(0 0 8px #00eaff) drop-shadow(0 0 14px #ff00de);
-  }
-  to {
-    opacity: 0.6;
-    filter: drop-shadow(0 0 4px #00eaff) drop-shadow(0 0 8px #ff00de);
-  }
-}
-
-/* Mirror left side so it shoots inward */
-.electric-line.left {
-  transform: rotateY(180deg);
-}
+    /* Optional: dark background for glow contrast */
+    body {
+      background-color: #111;
+      font-family: Arial, sans-serif;
+    }
   </style>
 </head>
-
-<svg width="0" height="0">
-  <defs>
-    <linearGradient id="electricGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00eaff" />
-      <stop offset="50%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#ffffff" />
-    </linearGradient>
-  </defs>
-</svg>
-
 
 <body>
   <!-- Social Media Section -->
@@ -592,7 +378,7 @@ header h2 {
         </iframe>`;
       playerBox.style.display = 'block';
     }
-
   </script>
+
 </body>
 </html>
